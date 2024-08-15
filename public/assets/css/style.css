@@ -3361,3 +3361,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 		margin-bottom: 5px;
 	}
 }
+
+
+video#bg-video {
+    width: 100%;
+}

@@ -1,0 +1,32 @@
+<div class="section-area section-sp2 popular-courses-bx">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 heading-bx left">
+							<h2 class="title-head">Popular
+								<span>Courses</span>
+							</h2>
+							<p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                            {% for course in courses %}
+                                <div class="item">
+                                    <div class="cours-bx">
+                                        <div class="action-box">
+                                            <img src="{{asset(course.detailImg ? 'uploads/'~ course.detailImg : 'images/courses/pic1.jpg' )}}" alt="">
+                                            <a href="#" class="btn">Read More</a>
+                                        </div>
+                                        <div class="info-bx text-center">
+                                            <h5>
+                                                <a href="#">{{course.title}}</a>
+                                            </h5>
+                                            <span>{{course.category ? course.category : "English"}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
