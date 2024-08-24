@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">Courses Details</h1>
+				 </div>
+            </div>
+        </div>
+		<!-- Breadcrumb row -->
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="#">Home</a></li>
+					<li>Courses Details</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Breadcrumb row END -->
+        <!-- inner page banner END -->
+		<div class="content-block">
+            <!-- About Us -->
+			<div class="section-area section-sp1">
+                <div class="container">
+					 <div class="row d-flex flex-row-reverse">
+						<div class="col-lg-3 col-md-4 col-sm-12 m-b30">
+							<div class="course-detail-bx">
+                                {% if course.price %}
+                                    <div class="course-price">
+                                        <del>{{course.oldPrice}} TND</del>
+                                        <h4 class="price">{{course.price}} TND</h4>
+                                    </div>	
+                                {% endif %}
+								<div class="course-buy-now text-center">
+									<a href="#" class="btn radius-xl text-uppercase">Buy Now This Courses</a>
+								</div>
+							</div>
+						</div>
+					
+						<div class="col-lg-9 col-md-8 col-sm-12">
+							<div class="courses-post">
+								<div class="ttr-post-media media-effect">
+									<a href="#"><img alt="{{course.altImg}}" src="{{asset(course.detailImg ? 'uploads/'~ course.detailImg : 'images/blog/default/thum1.jpg' )}}" alt=""></a>
+								</div>
+								<div class="ttr-post-info">
+									<div class="ttr-post-title ">
+										<h2 class="post-title">{{course.title}}</h2>
+									</div>
+									{# <div class="ttr-post-text">
+										{{course.Description|raw}}
+									</div> #}
+								</div>
+							</div>
+							<div class="courese-overview" id="overview">
+								<div class="row">
+									<div class="col-md-12 col-lg-4">
+										<ul class="course-features">
+											<li><i class="ti-book"></i> <span class="label">Category</span> <span class="value">{{course.category ? course.category : "-" }}</span></li>
+											<li><i class="ti-time"></i> <span class="label">Duration</span> <span class="value">{{course.duration ? course.duration : "-" }}</span></li>
+											<li><i class="ti-stats-up"></i> <span class="label">Skill level</span> <span class="value">{{course.level ? course.level : "-" }}</span></li>
+											<li><i class="ti-smallcap"></i> <span class="label">Language</span> <span class="value">{{course.language ? course.language : "-" }}</span></li>
+										</ul>
+									</div>
+									<div class="col-md-12 col-lg-8">
+										<h5 class="m-b5">Course Description</h5>
+										{{course.Description|raw}}
+
+                                        {% if course.program %}
+                                            <h5 class="m-b5">Program</h5>
+                                            {{ course.program|raw }}
+                                        {% endif %}
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+				</div>
+            </div>
+        </div>
+		<!-- contact area END -->
+		
+    </div>
+
+{% endblock %}

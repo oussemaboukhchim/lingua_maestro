@@ -2027,6 +2027,10 @@ button.back-to-top {
 	border-radius: 4px;
     overflow: hidden;
 }
+.cours-bx img{
+	height: 230px;
+	object-fit: cover;
+}
 .cours-more-info{
 	border-top: 1px solid #e6e6e6;
 	display: flex;
