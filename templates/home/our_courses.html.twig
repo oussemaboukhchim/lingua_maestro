@@ -14,12 +14,12 @@
                                 <div class="item">
                                     <div class="cours-bx">
                                         <div class="action-box">
-                                            <img src="{{asset(course.detailImg ? 'uploads/'~ course.detailImg : 'images/courses/pic1.jpg' )}}" alt="">
-                                            <a href="#" class="btn">Read More</a>
+                                            <img src="{{asset(course.listImg ? 'uploads/'~ course.listImg : 'images/courses/pic1.jpg' )}}" alt="{{course.altImg}}">
+                                            <a href="{{path('app_course',{slug:course.slug})}}" class="btn">Read More</a>
                                         </div>
                                         <div class="info-bx text-center">
                                             <h5>
-                                                <a href="#">{{course.title}}</a>
+                                                <a href="{{path('app_course',{slug:course.slug})}}">{{course.title}}</a>
                                             </h5>
                                             <span>{{course.category ? course.category : "English"}}</span>
                                         </div>

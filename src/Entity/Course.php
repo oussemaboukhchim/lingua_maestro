@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\CourseRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CourseRepository::class)]
+#[UniqueEntity(fields: ['slug'])]
 class Course
 {
     #[ORM\Id]
@@ -46,6 +48,12 @@ class Course
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $altImg = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?float $price = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?float $oldPrice = null;
 
     public function getId(): ?int
     {
@@ -181,6 +189,31 @@ class Course
     public function setAltImg(?string $altImg): static
     {
         $this->altImg = $altImg;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): static
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    
+    public function getOldPrice(): ?float
+    {
+        return $this->oldPrice;
+    }
+
+    public function setOldPrice(?float $oldPrice): static
+    {
+        $this->oldPrice = $oldPrice;
 
         return $this;
     }
