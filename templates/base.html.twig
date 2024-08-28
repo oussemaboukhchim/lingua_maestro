@@ -94,11 +94,11 @@
 										</a>
 									</li>
 									<!-- Search Button ==== -->
-									<li class="search-btn">
+									{# <li class="search-btn">
 										<button id="quik-search-btn" type="button" class="btn-link">
 											<i class="fa fa-search"></i>
 										</button>
-									</li>
+									</li> #}
 								</ul>
 							</div>
 						</div>
@@ -132,12 +132,12 @@
 									<a href="{{path('app_lessons')}}">Video Lessons
 									</a>
 								</li>
-								<li class="">
+								<li class="{% if app.request.attributes.get('_route') == 'app_about' %}active{% endif %}">
 									<a href="">About
 									</a>
 								</li>
 								<li class="">
-									<a href="">Contact Us
+									<a href="{{path('app_home')}}#contactUs">Contact Us
 									</a>
 								</li>
 							</ul>
