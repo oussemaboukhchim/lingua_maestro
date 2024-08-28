@@ -28,7 +28,7 @@ class VideoLesson
     #[ORM\Column(length: 255)]
     private ?string $category = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $img = null;
 
     #[ORM\Column(type: Types::TEXT)]

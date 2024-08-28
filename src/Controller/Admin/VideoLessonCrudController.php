@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Enum\Constants;
 use App\Entity\VideoLesson;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
@@ -24,11 +25,7 @@ class VideoLessonCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             SlugField::new('slug')->setTargetFieldName('title'),
-            ChoiceField::new('category')->renderExpanded()->setChoices([
-                'English for adults' => 'adults',
-                'English for kids and teens' => 'kids',
-                'Business English' => 'business',
-            ]),
+            ChoiceField::new('category')->renderExpanded()->setChoices(array_flip(Constants::LESSON_CATEGORIES)),
             TextEditorField::new('content'),
             UrlField::new('videoUrl')
             ->setHelp('Enter the full URL, including http:// or https://'),

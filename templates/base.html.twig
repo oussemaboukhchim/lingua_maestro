@@ -8,7 +8,7 @@
 			{% endblock %}
 		</title>
 
-		<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/favicon.png')}}"/>
+		<link rel="shortcut icon" type="image/x-icon" href="{{asset('images/lingua-maestro-logo.png')}}"/>
 
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/assets.css')}}">
 	
@@ -43,7 +43,7 @@
 						<div class="topbar-left">
 							<ul>
 								{# <li><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li> #}
-								<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+								<li><a href="mailto:contact@lingua-maestro.com"><i class="fa fa-envelope-o"></i>contact@lingua-maestro.com</a></li>
 							</ul>
 						</div>
 						<div class="topbar-right">
@@ -66,7 +66,7 @@
 						class="container clearfix">
 						<!-- Header Logo ==== -->
 						<div class="menu-logo">
-							<a href="index.html"><img src="{{asset('images/logo-white.png')}}" alt=""></a>
+							<a href="{{path('app_home')}}"><img src="{{asset('images/lingua-maestro-logo.png')}}" alt=""><div><p> Lingua</p><p> Maestro</p> </div></a>
 						</div>
 						<!-- Mobile Nav Button ==== -->
 						<button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,18 +79,17 @@
 							<div class="secondary-inner">
 								<ul>
 									<li>
-										<a href="javascript:;" class="btn-link">
+										<a target="_blank" href="https://www.facebook.com/LinguaMaestro" class="btn-link">
 											<i class="fa fa-facebook"></i>
 										</a>
 									</li>
-									<li>
-										<a href="javascript:;" class="btn-link">
+									{# <li>
+										<a target="_blank" href="javascript:;" class="btn-link">
 											<i class="fa fa-instagram"></i>
 										</a>
-									</li>
-									
+									</li> #}
 									<li>
-										<a href="javascript:;" class="btn-link">
+										<a target="_blank" href="https://www.youtube.com/@LinguaMaestro" class="btn-link">
 											<i class="fa fa-youtube"></i>
 										</a>
 									</li>
@@ -118,19 +117,19 @@
 						<!-- Navigation Menu ==== -->
 						<div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 							<div class="menu-logo">
-								<a href="index.html"><img src="{{asset('images/logo.png')}}" alt=""></a>
+								<a href="{{path('app_home')}}"><img src="{{asset('images/lingua-maestro-logo.png')}}" alt=""><div><p> Lingua</p><p> Maestro</p> </div></a>
 							</div>
 							<ul class="nav navbar-nav">
 								<li class="{% if app.request.attributes.get('_route') == 'app_home' %}active{% endif %}">
 									<a href="{{path('app_home')}}">Home
 									</a>
 								</li>
-								<li class="{% if app.request.attributes.get('_route') == 'app_courses' %}active{% endif %}">
+								<li class="{% if 'course' in app.request.attributes.get('_route') %}active{% endif %}">
 									<a href="{{path('app_courses')}}">Courses
 									</a>
 								</li>
-								<li class="">
-									<a href="">Video Lessons
+								<li class="{% if 'lesson' in app.request.attributes.get('_route') %}active{% endif %}">
+									<a href="{{path('app_lessons')}}">Video Lessons
 									</a>
 								</li>
 								<li class="">
@@ -143,17 +142,17 @@
 								</li>
 							</ul>
 							<div class="nav-social-link">
-								<a href="">
+								<a  target="_blank" href="https://www.facebook.com/LinguaMaestro" >
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="">
+								{# <a href="">
 									<i class="fa fa-instagram"></i>
 								</a>
 								<a href="">
 									<i class="fa fa-twitter"></i>
-								</a>
-								<a href="">
-									<i class="fa fa-linkedin"></i>
+								</a> #}
+								<a target="_blank" href="https://www.youtube.com/@LinguaMaestro">
+									<i class="fa fa-youtube"></i>
 								</a>
 							</div>
 						</div>
@@ -170,31 +169,13 @@
 		<footer>
 			<div class="footer-top">
 				<div class="container">
-					<div class="d-flex align-items-stretch">
-						<div class="pt-logo mr-auto">
-							<a href="index.html"><img src="{{asset('images/logo-white.png')}}" alt=""/></a>
+					<div class="d-flex align-items-stretch justify-content-between flex-wrap">
+						<div class="menu-logo">
+							<a href="{{path('app_home')}}"><img src="{{asset('images/lingua-maestro-logo.png')}}" alt=""><div><p> Lingua</p><p> Maestro</p> </div></a>
 						</div>
-						<div class="pt-social-link">
-							<ul class="list-inline m-a0">
-								<li>
-									<a href="#" class="btn-link">
-										<i class="fa fa-facebook"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="btn-link">
-										<i class="fa fa-linkedin"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="btn-link">
-										<i class="fa fa-google-plus"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
+						
 						<div class="pt-btn-join">
-							<a href="#" class="btn ">Join Now</a>
+							<a style="width: 200px;" target="_blank" aria-label="Chat on WhatsApp" href="https://wa.me/21694387488"> <img alt="Chat on WhatsApp" src="{{asset('images/WhatsAppButtonGreenLarge.png')}}" /><a />
 						</div>
 					</div>
 					<div class="container">
@@ -202,12 +183,12 @@
 					<div class="col-lg-4 col-md-12 col-sm-12 footer-col-4 contact-info-bx">
                         <div class="widget">
                             <h5 class="footer-title">Contact Information</h5>
-							<p class="text-capitalize m-b20">Weekly Breaking news analysis and cutting edge advices on job searching.</p>
+							<p class="text-capitalize m-b20">Feel free to contact us for more information!</p>
                             <div class="widget widget_getintuch">	
 								<ul>
-									<li><i class="ti-location-pin"></i>75k Newcastle St. Ponte Vedra Beach, FL 309382 New York</li>
-									<li><i class="ti-mobile"></i>0800-123456 (24/7 Support Line)</li>
-									<li><i class="ti-email"></i>info@example.com</li>
+									<li><i class="ti-location-pin"></i>Le Bardo, Tunisia</li>
+									<li><i class="ti-mobile"></i><a target="_blank" href="https://wa.me/21694387488"> +216 94 387 488 (24/7 Support Line)</a></li>
+									<li><i class="ti-email"></i><a href="mailto:contact@lingua-maestro.com">contact@lingua-maestro.com</a></li>
 								</ul>
 							</div>
                         </div>

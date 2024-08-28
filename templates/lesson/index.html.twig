@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div
+		class="page-content bg-white">
+		<!-- inner page banner -->
+		<div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
+			<div class="container">
+				<div class="page-banner-entry">
+					<h1 class="text-white">Online Lessons</h1>
+				</div>
+			</div>
+		</div>
+		<!-- Breadcrumb row -->
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li>
+						<a href="{{path('app_home')}}">Home</a>
+					</li>
+					<li><a href="{{path('app_lessons')}}">Online Lessons</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Breadcrumb row END -->
+		<!-- contact area -->
+		<div
+			class="content-block">
+			<!-- Portfolio  -->
+			<div class="section-area section-sp1 gallery-bx">
+				<div class="container">
+					<div class="feature-filters clearfix center m-b40">
+						<ul class="filters" data-toggle="buttons">
+							<li data-filter="" class="btn active">
+								<input type="radio">
+								<a href="#">
+									<span>All</span>
+								</a>
+							</li>
+                            {% for key,category in constant('App\\Enum\\Constants::LESSON_CATEGORIES') %}
+                                <li data-filter="{{key}}" class="btn">
+                                    <input type="radio">
+                                    <a href="#">
+                                        <span>{{category}}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+						</ul>
+					</div>
+					<div class="clearfix">
+						<ul id="masonry" class="ttr-gallery-listing magnific-image row">
+                            {% for lesson in lessons %}
+                                <li class="action-card col-lg-6 col-md-6 col-sm-12 {{lesson.category}}">
+                                    <div class="event-bx m-b30">
+                                        <div class="action-box">
+                                            <img src="{{asset(lesson.Img ? 'uploads/'~ lesson.Img : 'images/event/pic4.jpg' )}}"  alt="">
+                                        </div>
+                                        <div class="info-bx d-flex">
+                                            <div class="event-info">
+                                                <h4 class="event-title">
+                                                    <a href="{{path('app_lesson',{slug:lesson.slug})}}">{{lesson.title}}</a>
+                                                </h4>
+                                                {% if lesson.category %}
+                                                    <div class="media-post">
+                                                        {{ constant('App\\Enum\\Constants::LESSON_CATEGORIES')[lesson.category]}}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                            {% endfor %}
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- contact area END -->
+	</div>
+{% endblock %}
