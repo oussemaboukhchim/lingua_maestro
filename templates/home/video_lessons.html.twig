@@ -1,0 +1,48 @@
+<div class="section-area section-sp2">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center heading-bx">
+							<h2 class="title-head m-b0"> 
+								<span>Online</span>
+                                Lessons
+							</h2>
+							<p class="m-b0">Explore our English courses through engaging online videos.
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="upcoming-event-carousel owl-carousel owl-btn-center-lr owl-btn-1 col-12 p-lr0  m-b30">
+							{% for lesson in lessons %}
+                                <div class="item">
+                                    <div class="event-bx">
+                                        <div class="action-box">
+                                            <img src="{{asset(lesson.Img ? 'uploads/'~ lesson.Img : 'images/event/pic4.jpg' )}}"  alt="">
+                                        </div>
+                                        <div class="info-bx d-flex">
+                                            {# <div>
+                                                <div class="event-time">
+                                                    <div class="event-date">29</div>
+                                                    <div class="event-month">October</div>
+                                                </div>
+                                            </div> #}
+                                            <div class="event-info">
+                                                <h4 class="event-title">
+                                                    <a href="#">{{lesson.title}}</a>
+                                                </h4>
+                                                {% if lesson.category %}
+                                                    <div class="media-post">
+                                                            {{ constant('App\\Enum\\Constants::LESSON_CATEGORIES')[lesson.category]}}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+						</div>
+					</div>
+					<div class="text-center">
+						<a href="{{path('app_lessons')}}" class="btn">View All Lessons</a>
+					</div>
+				</div>
+			</div>

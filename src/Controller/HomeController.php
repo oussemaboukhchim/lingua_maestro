@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ContactUs;
 use App\Form\ContactUsType;
 use App\Repository\CourseRepository;
+use App\Repository\VideoLessonRepository;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -15,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(Request $request, MailerInterface $mailer , CourseRepository $courseRepo): Response
+    public function index(Request $request, MailerInterface $mailer , CourseRepository $courseRepo, VideoLessonRepository $lessonRepo): Response
     {
         $contactUs = new ContactUs();
         $form = $this->createForm(ContactUsType::class, $contactUs);
@@ -36,11 +37,13 @@ class HomeController extends AbstractController
         }
 
         $courses = $courseRepo->findAll();
+        $lessons = $lessonRepo->findAll();
         
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'form' => $form->createView(),
-            'courses' => $courses
+            'courses' => $courses,
+            'lessons' => $lessons,
         ]);
     }
 
