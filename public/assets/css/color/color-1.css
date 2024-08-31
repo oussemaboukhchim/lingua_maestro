@@ -134,13 +134,7 @@ h6 a:hover,
 .pricingtable-main,
 .account-head:after {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c1864+0,3f189a+100 */
-    background: #4c1864;
-    /* Old browsers */
-    background: -moz-linear-gradient(45deg, #4c1864 0%, #3f189a 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, #4c1864 0%, #3f189a 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, #4c1864 0%, #3f189a 100%);
+    background: #ff600061;
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c1864', endColorstr='#3f189a', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
